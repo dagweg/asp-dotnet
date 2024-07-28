@@ -1,0 +1,38 @@
+ 
+ @model asp_dotnet.Models.GuestResponse
+ @{
+ Layout = null;
+ }
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rspv Form</title>
+ </head>
+ <body> 
+    <form method="post" action="Rspvform">
+        <div>
+            <label asp-for="Name">Name: </label>
+            <input asp-for="Name">
+        </div> 
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email">
+        </div>
+        <div>
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone">
+        </div>
+        <div>
+            <label asp-for="WillAttend">Will you attend?</label>
+            <select asp-for="WillAttend">
+                <option value="">Choose an Option</option>
+                <option value="true">Yes, I'll be there</option>
+                <option value="false">No, I'll not be there</option>
+            </select>
+        </div>
+        <input type="submit" value="Submit RSPV">
+    </form>
+ </body>
+ </html>
