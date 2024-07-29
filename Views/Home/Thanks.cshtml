@@ -1,0 +1,52 @@
+@model asp_dotnet.Models.GuestResponse
+
+@{
+    string someHtml = "<h1>Some HTML</h1>";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Thanks @Model?.Name!</h1>
+    <p>Time: @DateTime.Now</p>
+    <br>
+    @for(var i = 0; i < DateTime.Now.Second; i++){
+        var x = 10;
+        <text>@i</text>
+    }
+    <br>
+    @if(Model?.Email != null ||  Model.Phone != null){
+        <table>
+        <thead>
+            @if(Model.Email != null){
+                <th>Email</th>
+            }
+
+            @if(Model.Phone != null){
+                <th>Phone</th>
+            }
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model?.Email</td>
+                <td>@Model?.Phone</td>
+            </tr>
+        </tbody>
+    </table>
+    }
+    <br>
+    <br>
+    @if(Model?.WillAttend == true){
+        <div>Great! I'm glad you can make it!</div>
+    } else {
+        <div>Sorry to hear you can't make it. Hope to see you next time.</div>
+    }
+
+    <div>Click <a asp-action="ListResponses">here</a> to see who is coming.</div>
+</body>
+</html>

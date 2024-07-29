@@ -6,13 +6,23 @@ namespace asp_dotnet.Controllers;
 
 public class HomeController : Controller
 {
-    public ViewResult Index()
+    public IActionResult Index()
     {
-        // int hour = DateTime.Now.Hour;
-        // string greeting = hour > 12 ? "Good Morning" : "Good Afternoon";
-        // return View("MyView", greeting);
         return View();
     }
 
-    public ViewResult Rspvform() => View();
+    [HttpGet]
+    public IActionResult Rspvform() {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Rspvform(GuestResponse guestResponse) {
+        Repository.AddResponse(guestResponse);
+        return View("Thanks", guestResponse);
+    }
+
+    public IActionResult ListResponses(){
+        return View(Repository.Response.Where(r => r.WillAttend == true));
+    }
 }

@@ -1,0 +1,29 @@
+@model IEnumerable<asp_dotnet.Models.GuestResponse>;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </thead>
+        <tbody>
+            @foreach(var response in Model){
+                <tr>
+                    <td>@response.Name</td>
+                    <td>@response.Email</td>
+                    <td>@response.Phone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        
+</body>
+</html>
